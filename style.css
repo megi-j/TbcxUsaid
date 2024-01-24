@@ -8,7 +8,8 @@
 .conteiner{
   max-width: 1920px;
   width: 100%;
-  /* margin: 0 auto; */
+  margin: 0 auto;
+  
 }
 
 /* header starts */
@@ -17,10 +18,10 @@ header{
   background-color: rgb(43, 43, 43);
   display: flex;
   justify-content: center;
-  position: fixed;
+  /* position: fixed; */
 }
 .header_content {
-  width: 80%;
+  width: 70%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -49,4 +50,37 @@ header{
   color: rgb(2, 163, 224);
   cursor: pointer;
   transition: color 0.4s ease 0s;
+}
+
+/* title section starts */
+
+.title_section{
+  width: 100%;
+  position: relative;
+  /* background-image: url("./image.webp");
+  background-position: center;
+  background-size: cover; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid blue;
+  color: #fff;
+  
+}
+.title{
+  width: 70%;
+  position: absolute;
+  font-family: 'Roboto', sans-serif;
+  line-height: 60px;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+.title_section img{
+  width: 100%;
+}
+.title h1{
+  font-size: 42px;
+}
+.title h2{
+  font-size: 34px;
 }
