@@ -60,3 +60,85 @@ createLearningBox = (num) => {
   }
 };
 createLearningBox(9);
+
+/* project_partners_section starts */
+
+document.addEventListener("DOMContentLoaded", function () {
+  let slider = document.querySelector(".slider");
+  let currentSlideIndex = 0;
+
+  function showSlide(index) {
+    let transformValue = -index * 100 + "%";
+    slider.style.transform = "translateX(" + transformValue + ")";
+  }
+
+  function nextSlide() {
+    setTimeout(function () {
+      currentSlideIndex++;
+      if (currentSlideIndex > slider.children.length - 1) {
+        currentSlideIndex = 0;
+      }
+      showSlide(currentSlideIndex);
+    }, 500);
+  }
+
+  function prevSlide() {
+    setTimeout(function () {
+      currentSlideIndex--;
+      if (currentSlideIndex < 0) {
+        currentSlideIndex = slider.children.length - 1;
+      }
+      showSlide(currentSlideIndex);
+    }, 500);
+  }
+  function setActiveSlide(newIndex) {
+    let slide = document.querySelector(".slider .slide");
+    slide.classList.add("out");
+
+    setTimeout(function () {
+      currentSlideIndex = newIndex;
+      showSlide(newIndex);
+      setActiveBullet();
+
+      slide.classList.remove("out");
+    }, 500);
+  }
+
+  let nextButton = document.querySelector(".nextArrow");
+  nextButton.addEventListener("click", nextSlide);
+
+  let prevButton = document.querySelector(".prevArrow");
+  prevButton.addEventListener("click", prevSlide);
+
+  function createBullets() {
+    let slide = document.querySelectorAll(".slide");
+    let project_partners_info = document.querySelector(".project_partners");
+    let bullets = document.createElement("div");
+    bullets.className = "bullets";
+    project_partners_info.appendChild(bullets);
+
+    for (let i = 0; i < slide.length; i++) {
+      let bullet = document.createElement("button");
+      bullet.className = "bullet";
+      bullets.appendChild(bullet);
+    }
+
+    setActiveBullet();
+  }
+
+  function setActiveBullet() {
+    let bullets = document.querySelectorAll(
+      ".project_partners .bullets .bullet"
+    );
+    for (let i = 0; i < bullets.length; i++) {
+      bullets[i].classList.remove("active");
+      bullets[i].addEventListener("click", function () {
+        setActiveSlide(i);
+      });
+    }
+
+    bullets[currentSlideIndex].classList.add("active");
+  }
+  createBullets();
+  setInterval(nextSlide, 3000);
+});
