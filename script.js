@@ -67,12 +67,12 @@ document.addEventListener("DOMContentLoaded", function () {
   let slider = document.querySelector(".slider");
   let currentSlideIndex = 0;
 
-  function showSlide(index) {
+  showSlide = (index) => {
     let transformValue = -index * 100 + "%";
     slider.style.transform = "translateX(" + transformValue + ")";
-  }
+  };
 
-  function nextSlide() {
+  nextSlide = () => {
     setTimeout(function () {
       currentSlideIndex++;
       if (currentSlideIndex > slider.children.length - 1) {
@@ -80,9 +80,9 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       showSlide(currentSlideIndex);
     }, 500);
-  }
+  };
 
-  function prevSlide() {
+  prevSlide = () => {
     setTimeout(function () {
       currentSlideIndex--;
       if (currentSlideIndex < 0) {
@@ -90,8 +90,8 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       showSlide(currentSlideIndex);
     }, 500);
-  }
-  function setActiveSlide(newIndex) {
+  };
+  setActiveSlide = (newIndex) => {
     let slide = document.querySelector(".slider .slide");
     slide.classList.add("out");
 
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       slide.classList.remove("out");
     }, 500);
-  }
+  };
 
   let nextButton = document.querySelector(".nextArrow");
   nextButton.addEventListener("click", nextSlide);
@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let prevButton = document.querySelector(".prevArrow");
   prevButton.addEventListener("click", prevSlide);
 
-  function createBullets() {
+  createBullets = () => {
     let slide = document.querySelectorAll(".slide");
     let project_partners_info = document.querySelector(".project_partners");
     let bullets = document.createElement("div");
@@ -124,9 +124,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     setActiveBullet();
-  }
+  };
 
-  function setActiveBullet() {
+  setActiveBullet = () => {
     let bullets = document.querySelectorAll(
       ".project_partners .bullets .bullet"
     );
@@ -138,7 +138,39 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     bullets[currentSlideIndex].classList.add("active");
-  }
+  };
   createBullets();
   setInterval(nextSlide, 3000);
 });
+
+/* faq_section starts */
+
+let questions = document.querySelectorAll(".question");
+
+for (let i = 0; i < questions.length; i++) {
+  questions[i].addEventListener("click", function () {
+    toggleAnswer(questions[i]);
+    questions[i].lastElementChild.classList.toggle("rotate");
+  });
+}
+toggleAnswer = (question) => {
+  let answer = question.nextElementSibling;
+
+  let allAnswers = document.querySelectorAll(".answer");
+
+  for (let i = 0; i < allAnswers.length; i++) {
+    if (allAnswers[i] !== answer) {
+      allAnswers[i].style.display = "none";
+      allAnswers[i].previousElementSibling.lastElementChild.style.rotate =
+        "0deg";
+    }
+  }
+
+  if (answer.style.display === "none" || answer.style.display === "") {
+    answer.style.display = "block";
+    answer.previousElementSibling.lastElementChild.style.rotate = "180deg";
+  } else {
+    answer.style.display = "none";
+    answer.previousElementSibling.lastElementChild.style.rotate = "0deg";
+  }
+};
