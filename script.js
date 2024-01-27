@@ -93,6 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
   };
   setActiveSlide = (newIndex) => {
     let slide = document.querySelector(".slider .slide");
+
     slide.classList.add("out");
 
     setTimeout(function () {
