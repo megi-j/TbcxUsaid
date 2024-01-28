@@ -176,3 +176,24 @@ toggleAnswer = (question) => {
     answer.previousElementSibling.lastElementChild.style.rotate = "0deg";
   }
 };
+
+// responsive
+
+let burgerIcon = document.querySelector(".burger");
+let menuBox = document.querySelector(".menu_box");
+let menuBoxIcon = document.querySelector(".menu_box svg");
+let menuBoxNav = document.querySelector(".menu_box nav");
+burgerIcon.addEventListener("click", function () {
+  menuBox.style.width = "50%";
+  menuBox.style.visibility = "visible";
+  menuBoxIcon.style.visibility = "visible";
+  menuBoxNav.style.visibility = "visible";
+});
+menuBoxIcon.addEventListener("click", function () {
+  menuBox.style.width = "0%";
+  menuBox.style.visibility = "hidden";
+  menuBoxIcon.style.visibility = "hidden";
+  menuBoxIcon.style.transition = "all 0.7s ease 0.5s";
+  menuBoxNav.style.visibility = "hidden";
+  menuBoxNav.style.transition = "all 0.7s ease 0.5s";
+});
