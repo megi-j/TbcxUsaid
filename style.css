@@ -92,6 +92,9 @@ header{
 .title_section img{
   width: 100%;
 }
+.mobile_banner{
+  display: none;
+}
 .title h1{
   font-size: 42px;
   font-family: 'Helvetica Neue', sans-serif;
@@ -306,6 +309,7 @@ header{
   font-size: 24px;
   font-family: "BPG Rioni Vera", sans-serif;
   font-weight: 100;
+  
 }
 .faq_box_title h3:hover{
   color: rgb(176,176,176);
@@ -339,6 +343,14 @@ header{
 }
 .rotate{
   rotate: 180deg;
+}
+.allAnswer{
+  display: none;
+  color: rgb(2, 163, 224);
+  font-size: 24px;
+  font-family: "BPG Rioni Vera", sans-serif;
+  font-weight: 100;
+  margin-top: 50px;
 }
 
 /* footer starts */
@@ -386,7 +398,7 @@ footer{
   width: 39px;
   height: 39px;
 }
-.right button{
+.right button {
   border-radius: 6px;
   background-color: rgb(0,174,243);
   color: rgb(255,255,255);
