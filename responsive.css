@@ -1,12 +1,12 @@
 @media(max-width: 480px){
-  .header_content{
-    width: 80%;
+  .header_content, .title, .learning_course, .project_partners{
+    width: 90%;
   }
-  .header_content > nav{
+  .header_content > nav, .title_section img:first-child, .nextArrow, .prevArrow, .faq_box_title h3, .footer_info{
     display: none;
   }
-  .burger{
-    opacity: 1;
+  .burger, .mobile_banner, .allAnswer{
+    display: block;
   }
   .header{
     position: relative;
@@ -37,35 +37,20 @@
     margin-right: 20px;
     visibility: hidden;
     transition: all 2.5s ease 1s;
-
   }
-
-  /* title_section starts */
 
   
-  .title_section img:first-child{
-    display: none;
-  }
-  .mobile_banner{
-    display: block;
-  }
-  .title {
-    width: 80%;
-  }
-
   /* more_info_section starts  */
   .more_info{
-    width: 80%;
+    width: 90%;
     padding: 0;
   }
-  .more_info p{
+  .more_info p, .learning_box h6{
     font-size: 24px;
   }
 
   /* learning_course_section starts */
-  .learning_course{
-    width: 90%;
-  }
+ 
   .learning_course h2, .project_partners h2{
     font-size: 32px;
     letter-spacing: 2px;
@@ -76,21 +61,14 @@
   .learning_box{
     width: 100%;
   }
-  .learning_box h6{
-    font-size: 24px;
-  }
+
   .learning_box p, .learning_box span{
     font-size: 22px;
   }
 
-
   /* project_partners_section starts */
-  .project_partners{
-    width: 90%;
-  }
-  .nextArrow, .prevArrow{
-    display: none;
-  }
+ 
+
   .slide{
     flex-direction: column;
     justify-content: center;
@@ -110,16 +88,9 @@
     justify-content: center;
     align-items: center;
   }
-  .faq_box_title h3 {
-    display: none;
-  }
-  .allAnswer {
-    display: block;
-  }
+ 
   /* footer starts */
-  .footer_info {
-    display: none;
-  }
+ 
   .footer_info_mobile{
     width: 90%;
     display: flex;
