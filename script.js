@@ -25,7 +25,7 @@ let boxInfo = {
     "Information Security Governance",
   ],
   registationInfos: "რეგისტრაცია დასრულებულია",
-  courseDetailImg: "./images/arrow.png",
+  courseDetailImg: "./images/arrow1.png",
   courseDetailInfo: "კურსის დეტალები",
 };
 
@@ -52,6 +52,7 @@ createLearningBox = (num) => {
 
     let detailInfoArrow = document.createElement("img");
     detailInfoArrow.src = boxInfo.courseDetailImg;
+    detailInfoArrow.classList.add("detail_info_img");
     detailInfoBox.appendChild(detailInfoArrow);
 
     let detailInfo = document.createElement("span");
